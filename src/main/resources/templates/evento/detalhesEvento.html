@@ -18,12 +18,22 @@
 	<h3><a href="/eventos" class="waves-effect waves-light btn"><iclass="material-icons left">format_list_bulleted</i>Lista de Eventos</a></h3>
 	<div th:each="evento : ${evento}" class="container">
 		<div class="row">
-			<p><samp th:text="${evento.nome}"></samp></p>
-			<p><samp th:text="${evento.local}"></samp></p>
-			<p><samp th:text="${evento.data}"></samp></p>
-			<p><samp th:text="${evento.horario}"></samp></p>
+			<p>Nome:<samp th:text="${evento.nome}"></samp></p>
+			<p>Local:<samp th:text="${evento.local}"></samp></p>
+			<p>Data:<samp th:text="${evento.data}"></samp></p>
+			<p>Horario:<samp th:text="${evento.horario}"></samp></p>
 		</div>
+		
+		<form method="post">
+		Nome:<input type="text" value"" name="nomeConvidado">
+		RG:<input type="text" value"" name="rg">
+		<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+	
+	</form>
 	</div>
+	
+	
+	
 
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
