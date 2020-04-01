@@ -1,9 +1,10 @@
-package com.i9.eventoapp.controllers;
+package com.i9.eventoapp.controllers; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.i9.eventoapp.models.Evento;
 import com.i9.eventoapp.repository.IEventoRepository;
@@ -24,5 +25,15 @@ public class EventoController {
 		eventoRepository.save(evento);
 		
 		return "redirect:/cadastrarEvento";
+	}
+	
+	
+	@RequestMapping("/eventos")
+	public ModelAndView listaEventos() {
+		
+		ModelAndView mv = new ModelAndView("index");
+		Iterable<Evento> eventos = eventoRepository.findAll();
+		mv.addObject("eventos",eventos);
+		return mv;
 	}
 }
